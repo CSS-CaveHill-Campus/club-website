@@ -1,0 +1,42 @@
+<h2 class="subtitle">Projects</h2>
+<p>Below is a list of our projects as found on our <a href="https://github.com/CSS-CaveHill-Campus"
+        target="_blank">GitHub page</a>.</p>
+
+<div id="projectContainer" class="py-2">
+    <ul id="projectList">
+
+    </ul>
+</div>
+
+<script>
+    const getProjects = async () => {
+        url = " https://api.github.com/orgs/CSS-CaveHill-Campus/repos"
+
+        const response = await fetch(url)
+        const data = await response.json();
+
+        for (let elem of data){
+            createListItem(elem.name, elem.html_url, elem.description || "No description")
+        }
+
+    }
+
+    const createListItem = (projectName, projectLink, projectDescription) => {
+        const listItem = document.createElement("li");
+        listItem.classList.add("mb-3")
+        listItem.innerHTML = `<div class="card py-3">
+            <header class="card-header">
+                <p class="card-header-title">Project Name: ${projectName}</p>
+            </header>
+            <div class="card-content">
+                <div class="content">
+                    Description: ${projectDescription}
+                </div>
+                <a href="${projectLink}">${projectName} Github Repository</a>
+            </div>
+        </div>`;
+        document.getElementById("projectList").appendChild(listItem);
+    }
+
+    getProjects();
+</script>
