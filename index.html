@@ -9,8 +9,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css" />
 </head>
 
-<body hx-trigger="load" hx-get="pages/main.html">
+<body>
+    <div id="HeaderContainer" hx-trigger="load" hx-get="components/header.html"></div>
 
+    <section id="MainSection">
+        <div id="content" hx-trigger="load" hx-get="pages/main.html"></div>
+    </section>
 </body>
 
 <script src="https://unpkg.com/htmx.org@2.0.2"></script>
