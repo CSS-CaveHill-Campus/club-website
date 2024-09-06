@@ -15,12 +15,16 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-            <a class="navbar-item">
+            <a class="navbar-item" hx-get="pages/main.html" hx-target="#MainSection">
                 Home
             </a>
 
-            <a class="navbar-item">
+            <a class="navbar-item" hx-get="pages/about.html" hx-target="#MainSection">
                 About
+            </a>
+
+            <a class="navbar-item">
+                Schedule
             </a>
 
         </div>
